@@ -6,8 +6,10 @@ import java.util.List;
 
 public class Person {
     private final List<String> messages = new ArrayList<>();
+    private final String name;
 
     public Person(String name) {
+        this.name = name;
     }
 
     public void publish(String message) {
