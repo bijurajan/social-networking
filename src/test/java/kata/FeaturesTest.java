@@ -26,7 +26,7 @@ class FeaturesTest {
         var result = person2.viewTimeLineOf(person1);
 
         assertEquals(2, result.size());
-        assertEquals("Good game though.", result.get(0));
-        assertEquals("Darn! We lost!", result.get(1));
+        assertEquals("Good game though. (1 minute ago)", result.get(0));
+        assertEquals("Darn! We lost! (2 minute ago)", result.get(1));
     }
 }
