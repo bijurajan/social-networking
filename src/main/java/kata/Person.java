@@ -21,15 +21,19 @@ public class Person {
 
     public List<String> viewTimeLineOf(Person person, LocalDateTime dateTime) {
         if (person.messages.size() == 1) {
-            return person.messages.stream()
-                    .map(Message::getMessage)
-                    .collect(Collectors.toList());
+            return buildMessageWithoutTimeline(person);
         }
         Collections.reverse(person.messages);
-        return addTimeLineToMessages(person, dateTime);
+        return buildMessagesWithTimeLine(person, dateTime);
     }
 
-    private List<String> addTimeLineToMessages(Person person, LocalDateTime dateTime) {
+    private List<String> buildMessageWithoutTimeline(Person person) {
+        return person.messages.stream()
+                .map(Message::getMessage)
+                .collect(Collectors.toList());
+    }
+
+    private List<String> buildMessagesWithTimeLine(Person person, LocalDateTime dateTime) {
         return person.messages.stream()
                 .map(message -> message.getMessage() + buildTimelineMessage(dateTime, message))
                 .collect(Collectors.toList());
