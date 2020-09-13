@@ -6,8 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class KataTest {
     @Test
-    void testSomeKataMethod() {
-        Kata subjectUnderTest = new Kata();
-        assertEquals("hello, world!", subjectUnderTest.someKataMethod());
+    void givenAlicePublishesMessageWhenAliceViewsMessageThenAliceSeesMessage() {
+        var person = new Person("Alice");
+        person.publish("I love the weather today.");
+
+        var result = person.viewTimeLine();
+
+        assertEquals("I love the weather today.", result);
     }
 }
