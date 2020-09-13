@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class KataTest {
+class FeaturesTest {
     @Test
     void givenAlicePublishesMessageWhenAliceViewsMessageThenAliceSeesMessage() {
         var person = new Person("Alice");
