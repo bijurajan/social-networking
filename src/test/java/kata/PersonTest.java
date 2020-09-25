@@ -3,6 +3,8 @@ package kata;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -48,5 +50,15 @@ class PersonTest {
 
         assertEquals("Hello there" + " (1 minute ago)", result.get(0));
         assertEquals("I am awesome" + " (2 minute ago)", result.get(1));
+    }
+
+    @Test
+    void shouldViewListOfFollowedPeople() {
+        var person = new Person("Harry");
+        var person2 = new Person("Nate");
+
+        person.follow(person2);
+
+        assertEquals(Arrays.asList(person2), person.getListOfFollowedPeople());
     }
 }

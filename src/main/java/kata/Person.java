@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 public class Person {
     private final List<Message> messages = new ArrayList<>();
     private final String name;
+    private final List<Person> followedPersons = new ArrayList<>();
 
     public Person(String name) {
         this.name = name;
@@ -41,5 +42,17 @@ public class Person {
 
     private String buildTimelineMessage(LocalDateTime dateTime, Message message) {
         return " (" + ChronoUnit.MINUTES.between(message.getDateTime(), dateTime) + " minute ago)";
+    }
+
+    public void follow(Person person) {
+        followedPersons.add(person);
+    }
+
+    public List<String> viewTimeLine() {
+        return null;
+    }
+
+    public List<Person> getListOfFollowedPeople() {
+        return followedPersons;
     }
 }
